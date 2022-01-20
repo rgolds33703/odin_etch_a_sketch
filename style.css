@@ -1,0 +1,13 @@
+  .container {
+    border: 2px solid black;
+    width: 960px;
+    height: 960px;
+    display: grid;
+    justify-content: stretch;
+    margin: auto;
+  }
+  
+  .cell {
+    border: 1px solid red;
+  }
+  
