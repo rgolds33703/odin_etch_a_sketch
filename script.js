@@ -11,7 +11,14 @@ function createGrid(n) {
         const cell = document.createElement('div');
         container.appendChild(cell);
         cell.classList.add('cell');
+        cell.addEventListener('mouseover', (e) => {
+            cell.classList.add('active');
+        })
     }
+
+    
 }
+
+
 
 createGrid(16);
