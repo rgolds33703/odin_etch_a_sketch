@@ -16,6 +16,7 @@ function createGrid(n) {
         cell.classList.add('cell');
         cell.addEventListener('mouseover', (e) => {
             cell.classList.add('active');
+            cell.style.backgroundColor = getRandomColor();
         })
     }
 }
@@ -23,16 +24,22 @@ function createGrid(n) {
 function clearGrid() {
     const activeCells = document.querySelectorAll('.active');
     activeCells.forEach(e => e.classList.remove('active'));
+    activeCells.forEach(e => e.removeAttribute('style'));
 }
 
 function newGrid() {
-    container.remove();
+    clearGrid();
     let gridSize = prompt('Enter a grid size:');
     if (gridSize > 100) {
         prompt('Enter a grid size no larger than 100:');
     }
     createGrid(gridSize);
-    }
+}
+
+// generates a random color HEX value
+function getRandomColor() {
+    return `#${Math.floor(Math.random()*16777215).toString(16)}`;
+}
 
 newGridButton.addEventListener('click', newGrid);
 clearGridButton.addEventListener('click', clearGrid);
