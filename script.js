@@ -1,6 +1,9 @@
+const body = document.querySelector('body');
+const container = document.createElement('div');
+const newGridButton = document.querySelector('#newGrid');
+const clearGridButton = document.querySelector('#clearGrid');
+
 function createGrid(n) {
-    const body = document.querySelector('body');
-    const container = document.createElement('div');
     body.appendChild(container);
     container.classList.add('container');
 
@@ -15,10 +18,20 @@ function createGrid(n) {
             cell.classList.add('active');
         })
     }
-
-    
 }
 
+function clearGrid() {
+    const activeCells = document.querySelectorAll('.active');
+    activeCells.forEach(e => e.classList.remove('active'));
+}
 
+function newGrid() {
+    container.remove();
+    let gridSize = prompt('Enter a grid size:');
+    createGrid(gridSize);
+    }
 
-createGrid(16);
+newGridButton.addEventListener('click', newGrid);
+clearGridButton.addEventListener('click', clearGrid);
+
+window.onload = createGrid(16);
