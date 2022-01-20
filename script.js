@@ -28,6 +28,9 @@ function clearGrid() {
 function newGrid() {
     container.remove();
     let gridSize = prompt('Enter a grid size:');
+    if (gridSize > 100) {
+        prompt('Enter a grid size no larger than 100:');
+    }
     createGrid(gridSize);
     }
 
